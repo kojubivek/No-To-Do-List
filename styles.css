@@ -1,0 +1,13 @@
+body {
+  background: linear-gradient(
+    to right,
+    rgba(228, 27, 27, 0.784),
+    rgba(32, 185, 21, 0.784)
+  );
+}
+
+.wrapper {
+  height: 100vh;
+  max-width: 1000px;
+  margin: auto;
+}
