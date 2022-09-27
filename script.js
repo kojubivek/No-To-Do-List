@@ -72,7 +72,7 @@ const displayBadList = () => {
             <i class="fa-regular fa-trash-can" onclick="deleteItem(${i})"></i> Delete
           </button>
           <button onclick="updateTask(${i},'entry')" class="btn btn-success">
-            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+            <i class="fa-sharp fa-solid fa-arrow-left"></i>
           </button>
         </td>
       </tr>`
@@ -80,6 +80,7 @@ const displayBadList = () => {
   });
   document.getElementById("bad-list").innerHTML = str;
   totalTaskHours();
+  totalBadHours();
 
   // displayBadList();
 };
@@ -95,16 +96,20 @@ const updateTask = (i, type) => {
   displayBadList();
 };
 const totalTaskHours = () => {
-  const total = (document.getElementById("totalHours").innerText =
-    taskList.reduce((acc, { hour }) => {
+  document.getElementById("totalHours").innerText = taskList.reduce(
+    (acc, { hour }) => {
       return acc + hour;
-    }, 0));
+    },
+    0
+  );
 };
 const totalBadHours = () => {
-  const total = (document.getElementById("BadHours").innerText =
-    taskList.reduce((acc, { type, hour }) => {
+  document.getElementById("totalBadHours").innerText = taskList.reduce(
+    (acc, { type, hour }) => {
       return type === "bad" ? acc + hour : acc + 0;
-    }, 0));
+    },
+    0
+  );
 };
 
 const deleteItem = (i) => {
